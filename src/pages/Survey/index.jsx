@@ -15,11 +15,11 @@ function Survey() {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold underline">Questionnaire 🧮</h1>
-      <h2 className="m-8">
+      <h1 className=" font-bold underline">Questionnaire 🧮</h1>
+      <h2>
         Question <span className="font-black">{questionNumber}</span>{' '}
       </h2>
-      <div className="space-x-8">
+      <div>
         <Link to={`/survey/${prevQuestion}`}>Précédent</Link>
         {questionNumberInt === 10 ? (
           <Link to="/results">Résultat</Link>

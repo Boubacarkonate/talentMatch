@@ -8,10 +8,18 @@ import Error from './components/Error/index.jsx';
 import Survey from './pages/Survey/index.jsx';
 import Results from './pages/Results/index.jsx';
 import FreeLances from './pages/Freelances/index.jsx';
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
+    div {
+        font-family: 'Trebuchet MS', Helvetica, sans-serif;
+    }
+`;
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Router>
+      <GlobalStyle />
       <Header />
       <Routes>
         <Route path="/" element={<App />} />
