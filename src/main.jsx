@@ -8,28 +8,27 @@ import Error from './components/Error/index.jsx';
 import Survey from './pages/Survey/index.jsx';
 import Results from './pages/Results/index.jsx';
 import FreeLances from './pages/Freelances/index.jsx';
-import { createGlobalStyle } from 'styled-components';
-
-const GlobalStyle = createGlobalStyle`
-    div {
-        font-family: 'Trebuchet MS', Helvetica, sans-serif;
-    }
-`;
+import { ThemeProvider } from './utils/context/index.jsx';
+import GlobalStyle from './utils/style/GlobalStyle.jsx';
+import Footer from './components/Footer/index.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Router>
-      <GlobalStyle />
-      <Header />
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/survey/:questionNumber" element={<Survey />} />
-        {/* <Route path="/clientForm" element={<ClientForm />} />
+      <ThemeProvider>
+        <GlobalStyle />
+        <Header />
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/survey/:questionNumber" element={<Survey />} />
+          {/* <Route path="/clientForm" element={<ClientForm />} />
         <Route path="/freelance" element={<FreeLanceForm />} /> */}
-        <Route path="*" element={<Error />} />
-        <Route path="/results" element={<Results />} />
-        <Route path="/freelances" element={<FreeLances />} />
-      </Routes>
+          <Route path="*" element={<Error />} />
+          <Route path="/results" element={<Results />} />
+          <Route path="/freelances" element={<FreeLances />} />
+        </Routes>
+        <Footer />
+      </ThemeProvider>
     </Router>
   </StrictMode>,
 );
