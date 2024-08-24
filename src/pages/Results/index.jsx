@@ -1,7 +1,11 @@
-import React from 'react';
+import { useContext } from 'react';
+import { SurveyContext } from '../../utils/context';
 
 const Results = () => {
-  return <div>Results</div>;
+  const { answers } = useContext(SurveyContext);
+  console.log(answers);
+
+  return <div>resultats</div>;
 };
 
 export default Results;
