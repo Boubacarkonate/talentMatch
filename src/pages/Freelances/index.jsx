@@ -2,8 +2,8 @@ import DefaultPicture from '../../assets/profile.png';
 import Card from '../../components/Card';
 import styled from 'styled-components';
 import colors from '../../utils/style/colors';
-import { useEffect, useState } from 'react';
 import { Loader } from '../../utils/style/Atoms';
+import useFetchApi from '../../utils/hooks';
 
 const CardsContainer = styled.div`
   display: grid;
@@ -34,52 +34,24 @@ const LoaderWrapper = styled.div`
   justify-content: center;
 `;
 
-// const freelanceProfiles = [
-//   {
-//     name: 'Jane Doe',
-//     jobTitle: 'Devops',
-//     picture: DefaultPicture,
-//   },
-//   {
-//     name: 'John Doe',
-//     jobTitle: 'Developpeur frontend',
-//     picture: DefaultPicture,
-//   },
-//   {
-//     name: 'Jeanne Biche',
-//     jobTitle: 'Développeuse Fullstack',
-//     picture: DefaultPicture,
-//   },
-// ];
-
 const FreeLances = () => {
-  const [freelancersList, setFreelancesList] = useState([]);
-  const [isDataLoading, setDataLoading] = useState(false);
+  const { data, isLoading, error } = useFetchApi(
+    'http://localhost:8000/freelances',
+  );
 
-  const fecthdataFreelance = async () => {
-    setDataLoading(true);
-    try {
-      const response = await fetch('http://localhost:8000/freelances');
-      const { freelancersList } = await response.json();
-      setFreelancesList(freelancersList);
-    } catch (error) {
-      console.log("l'erreur est  : ", error.message);
-    } finally {
-      setDataLoading(false); // Stop loading after fetching data
-    }
-  };
+  // Accéder à la liste des freelances si elle est disponible
+  const freelancersList = data?.freelancersList;
 
-  useEffect(() => {
-    fecthdataFreelance();
-  }, []);
-
+  if (error) {
+    return <span>Il y a un problème</span>;
+  }
   return (
     <div>
       <PageTitle>Trouvez votre prestataire</PageTitle>
       <PageSubtitle>
         Chez Shiny nous réunissons les meilleurs profils pour vous.
       </PageSubtitle>
-      {isDataLoading ? (
+      {isLoading ? (
         <LoaderWrapper>
           <Loader />
         </LoaderWrapper>
@@ -90,7 +62,7 @@ const FreeLances = () => {
               key={`${profile.name}-${index}`}
               label={profile.job}
               title={profile.name}
-              picture={profile.picture}
+              picture={profile.picture || DefaultPicture}
             />
           ))}
         </CardsContainer>
