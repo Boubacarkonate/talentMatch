@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { formatJobList, formatQueryParams } from './';
+import { formatJobList, formatQueryParams } from '.';
 
 describe('The formatJobList function', () => {
   it('should add a comma to a word', () => {
