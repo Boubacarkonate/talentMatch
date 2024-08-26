@@ -18,10 +18,13 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: '20' # Assurez-vous d'utiliser la version correcte pour votre projet
 
       - name: Install dependencies
         run: yarn install
+
+      - name: Run tests
+        run: yarn test
 
       - name: Build
         run: yarn build
@@ -33,14 +36,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20'
-
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v20
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }} # Assurez-vous d'ajouter cet ID
           vercel-args: '--prod'
