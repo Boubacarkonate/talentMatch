@@ -12,6 +12,7 @@ const FooterContainer = styled.footer`
 `;
 
 const NightModeButton = styled.button`
+  margin-bottom: 0;
   background-color: transparent;
   border: none;
   cursor: pointer;

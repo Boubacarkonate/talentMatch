@@ -1,8 +1,8 @@
-import '../../../style/App.css';
 import colors from '../../utils/style/colors';
 import styled from 'styled-components';
 import HomeIllustration from '../../assets/teamHome.jpg';
 import { StyledLink } from '../../utils/style/Atoms';
+import { useTheme } from '../../utils/hooks';
 
 const HomeWrapper = styled.div`
   display: flex;
@@ -34,6 +34,7 @@ const StyledTitle = styled.h2`
   padding-bottom: 30px;
   max-width: 280px;
   line-height: 50px;
+  color: ${({ theme }) => (theme === 'light' ? '#000000' : '#ffffff')};
 `;
 const Illustration = styled.img`
   flex: 1;
@@ -41,13 +42,13 @@ const Illustration = styled.img`
 `;
 
 function App() {
+  const { theme } = useTheme();
   return (
     <HomeWrapper>
       <HomerContainer>
         <LeftCol>
-          <StyledTitle>
-            Repérez vos besoins, on s’occupe du reste, avec les meilleurs
-            talents
+          <StyledTitle theme={theme}>
+            Simplifiez vos recrutements, accédez aux meilleurs talents.
           </StyledTitle>
           <StyledLink to="/survey/1" $isFullLink>
             Faire le test

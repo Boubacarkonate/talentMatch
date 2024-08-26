@@ -24,9 +24,9 @@ createRoot(document.getElementById('root')).render(
             <Route path="/survey/:questionNumber" element={<Survey />} />
             {/* <Route path="/clientForm" element={<ClientForm />} />
             <Route path="/freelance" element={<FreeLanceForm />} /> */}
-            <Route path="*" element={<Error />} />
             <Route path="/results" element={<Results />} />
             <Route path="/freelances" element={<FreeLances />} />
+            <Route path="*" element={<Error />} />
           </Routes>
           <Footer />
         </SurveyProvider>

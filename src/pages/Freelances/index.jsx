@@ -49,7 +49,7 @@ const FreeLances = () => {
     <div>
       <PageTitle>Trouvez votre prestataire</PageTitle>
       <PageSubtitle>
-        Chez Shiny nous réunissons les meilleurs profils pour vous.
+        Chez Talent Match nous réunissons les meilleurs profils pour vous.
       </PageSubtitle>
       {isLoading ? (
         <LoaderWrapper>

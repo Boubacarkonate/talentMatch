@@ -12,6 +12,13 @@ const StyledGlobalStyle = createGlobalStyle`
         background-color: ${({ isDarkMode }) => (isDarkMode ? 'black' : 'white')};
         margin: 0;  
     }
+
+    :root {
+  background-color: ${({ isDarkMode }) => (isDarkMode ? 'black' : 'white')};
+ 
+    }
+
+
 `;
 
 const GlobalStyle = () => {
