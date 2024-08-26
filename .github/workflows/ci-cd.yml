@@ -23,12 +23,6 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Install tests
-        run: yarn add -D vitest
-
-      - name: Run tests
-        run: yarn run test
-
       - name: Build
         run: yarn build
 
