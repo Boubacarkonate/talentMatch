@@ -86,7 +86,7 @@ function Survey() {
   async function fetchData() {
     setDataLoading(true);
     try {
-      const response = await fetch(`http://localhost:8000/survey`);
+      const response = await fetch(`https://api-rest.up.railway.app/survey`);
       const { surveyData } = await response.json();
       setSurveyData(surveyData);
     } catch (error) {
