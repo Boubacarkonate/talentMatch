@@ -36,7 +36,7 @@ const LoaderWrapper = styled.div`
 
 const FreeLances = () => {
   const { data, isLoading, error } = useFetchApi(
-    'http://localhost:8000/freelances',
+    'https://api-rest.up.railway.app/freelances',
   );
 
   // Accéder à la liste des freelances si elle est disponible

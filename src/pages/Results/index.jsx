@@ -75,7 +75,7 @@ const Results = () => {
   const queryParams = formatQueryParams(answers);
 
   const { data, isLoading, error } = useFetchApi(
-    `http://localhost:8000/results?${queryParams}`,
+    `https://api-rest.up.railway.app/results?${queryParams}`,
   );
 
   if (error) {
